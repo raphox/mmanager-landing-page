@@ -6,13 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Static Template</title>
 
-    <meta name="theme-color" content="#563d7c" />
-
     <!-- CSS only -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
       crossorigin="anonymous"
     />
     <link href="index.css" rel="stylesheet" />
@@ -36,33 +40,162 @@
   </head>
   <body class="text-center">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">MManager</h3>
-        </div>
-      </header>
+      <header class="masthead mb-auto"></header>
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading">Cover your page.</h1>
-        <p class="lead">
-          Cover is a one-page template for building simple and beautiful home
-          pages. Download, edit the text, and add your own fullscreen background
-          photo to make it your own.
-        </p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
-        </p>
+        <h1 class="cover-heading mb-4">
+          MManager, o melhor software de gestão de hospedagem do mercado.
+        </h1>
+        <div class="row">
+          <div class="col-sm-8">
+            <div>
+              <img src="assets/images/macbook.png" alt="Macbook" width="100%" />
+            </div>
+          </div>
+          <div class="col-sm contact-form">
+            <form id="myform">
+              <p>
+                <img
+                  src="assets/images/mmanager.png"
+                  alt="MManager"
+                  width="70%"
+                />
+              </p>
+              <div class="form-group">
+                <input
+                  id="field_email"
+                  type="email"
+                  name="reply_to"
+                  class="form-control"
+                  placeholder="E-mail"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  id="field_phone"
+                  type="text"
+                  name="phone_number"
+                  class="form-control"
+                  placeholder="Telefone"
+                  required
+                />
+              </div>
+              <button
+                id="submit"
+                type="submit"
+                class="btn btn-primary btn-block"
+              >
+                Solicitar contato
+              </button>
+
+              <script src="https://www.google.com/recaptcha/api.js"></script>
+              <div
+                id="recaptcha"
+                class="g-recaptcha"
+                data-sitekey="6LdszPkUAAAAAFDvY_wOi2WZT3ZsJUNTjE5rvBaD"
+              ></div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm">
+            <div class="card-deck">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><i class="fas fa-door-open"></i>+</h5>
+                  <p class="card-text">
+                    Cadastrar quantos apartamentos, suítes etc.; que quiser.<br />
+                    Cadastrar quantos produtos tiver.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Preço único R$</small>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <i class="fas fa-user-shield"></i>
+                  </h5>
+                  <p class="card-text">
+                    Cadastrar funcionários aptos para usar o controle de
+                    caixa.<br />
+                    Cadastrar funcionários aptos a liberar os apartamentos.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Preço único R$</small>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <i class="fas fa-chart-line"></i>
+                  </h5>
+                  <p class="card-text">
+                    Relatorios diversos: relatório de pedidos, balanço de caixa,
+                    por usuários e datas.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Preço único R$</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
           <p>
-            Cover template for
-            <a href="https://getbootstrap.com/">Bootstrap</a>, by
-            <a href="https://twitter.com/mdo">@mdo</a>.
+            Todos os direitos reservados a
+            <a href="http://vivace-softwares.com.br">MManager</a>, por
+            <a href="http://me.vivace-softwares.com.br">@raphox</a>.
           </p>
         </div>
       </footer>
+
+      <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
+      ></script>
+      <script type="text/javascript">
+        (function() {
+          emailjs.init("user_1si8qJE04hKfGZSzqs7tF");
+        })();
+
+        var myform = $("form#myform");
+
+        myform.submit(function(event) {
+          event.preventDefault();
+
+          // Change to your service ID, or keep using the default service
+          var service_id = "default_service";
+          var template_id = "template_CQ6WwdJg";
+
+          myform.find("button").text("Enviando...");
+          emailjs.sendForm(service_id, template_id, myform[0]).then(
+            function() {
+              alert("Entraremos em contato em breve");
+
+              $("#field_email").val("");
+              $("#field_phone").val("");
+
+              myform.find("button").text("Solicitar contato");
+            },
+            function(err) {
+              alert(
+                "Não foi possivel enviar sua mensagem. Certifique-se de ter marcado a opção de 'Não sou um robô' na parte inferior do site, ou tente novamente mais tarde."
+              );
+
+              myform.find("button").text("Solicitar contato");
+            }
+          );
+          return false;
+        });
+      </script>
     </div>
   </body>
 </html>
