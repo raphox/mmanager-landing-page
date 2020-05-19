@@ -80,5 +80,6 @@ body {
 @media only screen and (max-width: 540px) {
   #recaptcha {
     position: static;
+    margin-top: 1.5rem;
   }
 }
