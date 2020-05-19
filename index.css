@@ -37,7 +37,6 @@ body {
 
 .cover-container {
   max-width: 62em;
-  overflow: hidden;
 }
 
 .cover-heading {
@@ -65,8 +64,7 @@ body {
 .contact-form form {
   background: linear-gradient(to top, rgba(255, 0, 0, 0) 10%, #fff 50%, #fff);
   border-radius: 0.25rem;
-  margin-bottom: -15rem;
-  padding: 1.5rem 1.5rem 8em;
+  padding: 1.5rem;
 }
 
 .card .card-title .fas {
@@ -77,4 +75,10 @@ body {
   position: absolute;
   right: 10px;
   bottom: 10px;
+}
+
+@media only screen and (max-width: 540px) {
+  #recaptcha {
+    position: static;
+  }
 }
