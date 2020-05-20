@@ -58,13 +58,12 @@ body {
 .contact-form {
   color: #333;
   text-shadow: none;
-  position: inherit;
 }
 
 .contact-form form {
   background: linear-gradient(to top, rgba(255, 0, 0, 0) 10%, #fff 50%, #fff);
   border-radius: 0.25rem;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 6rem;
 }
 
 .card .card-title .fas {
@@ -73,13 +72,6 @@ body {
 
 #recaptcha {
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-}
-
-@media only screen and (max-width: 540px) {
-  #recaptcha {
-    position: static;
-    margin-top: 1.5rem;
-  }
+  left: 0;
+  margin: 0 auto;
 }
